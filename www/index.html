@@ -12,25 +12,21 @@
 <body>
     <div>
         <main>
-            <div>
-                <form>
-                    E-mail:<br>
-                    <input id="email" type="text" name="email">
-                    <br>
-                    Password:<br>
-                    <input id="password" type="password" name="password">
-                    <br>
-                    <button disabled id="quickstart-sign-in" name="signin">Sign In</button>
-                    <button id="quickstart-sign-up" name="signup">Sign Up</button>
-                    <button id="quickstart-password-reset" name="verify-email">Forgot password?</button>
-                </form>
+            <!-- Login Form -->
+            <div class="loginform">
+                <input id="email" type="text" name="email" placeholder="Email"/>
+                <input id="password" type="password" name="password" placeholder="Password"/>
+                <button disabled id="quickstart-sign-in" name="signin">Sign In</button>
+                <button id="quickstart-sign-up" name="signup">Sign Up</button>
                 <button disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-                <!-- Container where we'll display the user details -->
-                <div>
-                    Sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-                    <div>Firebase auth <code>currentUser</code> object value:</div>
-                    <pre><code id="quickstart-account-details">null</code></pre>
-                </div>
+                <button id="quickstart-password-reset" name="verify-email">Forgot Password?</button>
+            </div>
+            
+            <!-- Display user details -->
+            <div>
+            Sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+            <div>Firebase auth <code>currentUser</code> object value:</div>
+            <pre><code id="quickstart-account-details">null</code></pre>
             </div>
         </main>
     </div>
@@ -39,10 +35,10 @@
 <script>
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyCYQP6NhLNJqnHGNOLd8jEOSjhCDknvyEw",
-        authDomain: "studyology-5c98d.firebaseapp.com",
-        databaseURL: "https://studyology-5c98d.firebaseio.com",
-        storageBucket: "",
+    apiKey: "AIzaSyCYQP6NhLNJqnHGNOLd8jEOSjhCDknvyEw",
+    authDomain: "studyology-5c98d.firebaseapp.com",
+    databaseURL: "https://studyology-5c98d.firebaseio.com",
+    storageBucket: "",
     };
     firebase.initializeApp(config);
 </script>
@@ -91,6 +87,22 @@
         }
         document.getElementById('quickstart-sign-in').disabled = true;
     }
+    
+    /**
+    * Sends an email verification to the user.
+    */
+    function sendEmailVerification() {
+        // [START sendemailverification]
+        firebase.auth().currentUser.sendEmailVerification().then(
+            function() {
+                // Email Verification sent!
+                // [START_EXCLUDE]
+                alert('Email Verification Sent!');
+                // [END_EXCLUDE]
+            }
+        );
+        // [END sendemailverification]
+    }
 
     /**
     * Handles the sign up button press.
@@ -124,22 +136,7 @@
             }
         );
         // [END createwithemail]
-    }
-
-    /**
-    * Sends an email verification to the user.
-    */
-    function sendEmailVerification() {
-        // [START sendemailverification]
-        firebase.auth().currentUser.sendEmailVerification().then(
-            function() {
-                // Email Verification sent!
-                // [START_EXCLUDE]
-                alert('Email Verification Sent!');
-                // [END_EXCLUDE]
-            }
-        );
-        // [END sendemailverification]
+        
     }
 
     function sendPasswordReset() {
