@@ -10,30 +10,30 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<div>
-    <main>
-        <div>
-            <form>
-                First name:<br>
-                <input id="email" type="text" name="email">
-                <br>
-                Last name:<br>
-                <input id="password" type="password" name="password">
-                <br>
-                <button disabled id="quickstart-sign-in" name="signin">Sign In</button>
-                <button id="quickstart-sign-up" name="signup">Sign Up</button>
-                <button id="quickstart-password-reset" name="verify-email">Forgot password?</button>
-            </form>
-            <button disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-            <!-- Container where we'll display the user details -->
+    <div>
+        <main>
             <div>
-                Sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-                <div>Firebase auth <code>currentUser</code> object value:</div>
-                <pre><code id="quickstart-account-details">null</code></pre>
+                <form>
+                    E-mail:<br>
+                    <input id="email" type="text" name="email">
+                    <br>
+                    Password:<br>
+                    <input id="password" type="password" name="password">
+                    <br>
+                    <button disabled id="quickstart-sign-in" name="signin">Sign In</button>
+                    <button id="quickstart-sign-up" name="signup">Sign Up</button>
+                    <button id="quickstart-password-reset" name="verify-email">Forgot password?</button>
+                </form>
+                <button disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
+                <!-- Container where we'll display the user details -->
+                <div>
+                    Sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+                    <div>Firebase auth <code>currentUser</code> object value:</div>
+                    <pre><code id="quickstart-account-details">null</code></pre>
+                </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </body>
 
 <script>
@@ -224,7 +224,7 @@
                 // [START_EXCLUDE silent]
                 document.getElementById('quickstart-sign-in').disabled = false;
                 // [END_EXCLUDE]
-                }
+            }
         );
         // [END authstatelistener]
 
